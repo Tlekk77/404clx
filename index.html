@@ -1,1 +1,18 @@
+<script>
+  const scriptURL = 'ใส่_WEB_APP_URL_ที่คุณก๊อปปี้มาตรงนี้';
 
+  async function register() {
+    const user = prompt("ตั้งชื่อผู้ใช้:");
+    const pass = prompt("ตั้งรหัสผ่าน:");
+
+    const response = await fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify({ action: "register", username: user, password: pass })
+    });
+    
+    const result = await response.json();
+    alert(result.message);
+  }
+</script>
+
+<button onclick="register()">ทดสอบสมัครสมาชิก</button>
